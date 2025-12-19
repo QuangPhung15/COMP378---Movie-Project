@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="actor-detail">
+    {% if actor[3] %}
+        <img src="{{ actor[3] }}" class="actor-photo">
+    {% endif %}
+
+    <h2>{{ actor[0] }}</h2>
+    <p><strong>Date of birth:</strong> {{ actor[1] }}</p>
+    <p>{{ actor[2] }}</p>
+
+    <h3>Movies</h3>
+    <div class="movie-grid">
+        {% for movie in movies %}
+            <div class="movie-card">
+                <a href="/movie/{{ movie[0] }}">
+                    {% if movie[2] %}
+                        <img src="{{ movie[2] }}">
+                    {% endif %}
+                    <p>{{ movie[1] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

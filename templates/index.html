@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="movie-grid">
+    {% for movie in movies %}
+        <div class="movie-card">
+            <a href="/movie/{{ movie[0] }}">
+                {% if movie[2] %}
+                    <img src="{{ movie[2] }}" alt="{{ movie[1] }}">
+                {% endif %}
+                <h3>{{ movie[1] }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

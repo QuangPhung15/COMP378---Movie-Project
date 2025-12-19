@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    background: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.movie-card img {
+    width: 100%;
+}
+
+.movie-detail {
+    padding: 20px;
+    background: white;
+    margin: 20px;
+}
+
+.poster {
+    width: 200px;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* Cast horizontal scroll */
+.cast-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.cast-card {
+    min-width: 120px;
+    text-align: center;
+}
+
+.cast-card img {
+    width: 120px;
+    border-radius: 8px;
+}
+
+.cast-card a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Actor detail page */
+.actor-detail {
+    padding: 20px;
+    background: white;
+    margin: 20px;
+}
+
+.actor-photo {
+    width: 200px;
+    border-radius: 10px;
+}

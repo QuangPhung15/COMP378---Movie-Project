@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="movie-detail">
+    <h2>{{ movie[0] }} ({{ movie[1] }})</h2>
+
+    {% if movie[4] %}
+        <img src="{{ movie[4] }}" class="poster">
+    {% endif %}
+
+    <p>{{ movie[2] }}</p>
+    <p><strong>Average rating:</strong> {{ movie[3] }}</p>
+
+    <p><strong>Genres:</strong> {{ genres | join(", ") }}</p>
+
+    <h3>Cast</h3>
+
+    <div class="cast-row">
+        {% for actor in cast %}
+            <div class="cast-card">
+                <a href="/actor/{{ actor[0] }}">
+                    {% if actor[2] %}
+                        <img src="{{ actor[2] }}" alt="{{ actor[1] }}">
+                    {% endif %}
+                    <p>{{ actor[1] }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <h3>Reviews</h3>
+    {% for r in reviews %}
+        <div class="review">
+            <strong>{{ r[0] }}</strong> ({{ r[1] }}/10)
+            <p>{{ r[2] }}</p>
+            <small>{{ r[3] }}</small>
+        </div>
+    {% endfor %}
+
+    <h3>Add a Review</h3>
+    <form action="/add_review" method="post">
+        <input type="hidden" name="movie_id" value="{{ movie_id }}">
+
+        <input type="text" name="user_name" placeholder="Your name" required>
+        <input type="number" name="rating" min="0" max="10" required>
+        <textarea name="review_text" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
